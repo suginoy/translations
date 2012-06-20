@@ -41,7 +41,7 @@ var arr = new Array, obj = new Object;
 
 モダンなブラウザでは、最初の方が高速で、こちらを使うべきだ。
 
-## 3 For 対 ループ中の For (For vs For in Loop)
+## 3 For ループ 対 For in ループ (For vs For in Loop)
 
 > The for in loop looks like
 
