@@ -3,6 +3,7 @@
 この文章は、以下のブログの翻訳です。
 
 10 tips to write better JavaScript
+
 [http://kinesis.io/blog/10-tips-to-write-better-javascript/](http://kinesis.io/blog/10-tips-to-write-better-javascript/)
 
 ## 1 セミコロンを忘れない(Don’t forget the semi-colons)
@@ -24,13 +25,13 @@ JavaScript を書くときは、ステートメントの後ろにかならずセ
 
 JavaScript で Array とObject の話題といえば、以下のように、2 種類の初期化の方法がある。
 
-````
+````javascript
 var arr = [], obj = {};
 ````
 
 と
 
-````
+````javascript
 var arr = new Array, obj = new Object;
 ````
 
@@ -46,7 +47,7 @@ var arr = new Array, obj = new Object;
 
 ループで使用する for はこんな感じだ。
 
-````
+````javascript
 for(item in obj) {
  //do something with item
 }
@@ -69,7 +70,7 @@ for(item in obj) {
 
 '===' 演算子は、等値か判断するのに必要な変換を行ってから比較を行う。'==' 演算子は変換をしない。2 つの値が同じ型でない場合、 '===' は単純に false を返す。'===' が速いのは事実だし、'==' と異なる結果を返すこともあるが、それ以外の多くの場合で、パフォーマンスは同じだ。
 
-````
+````javascript
 "abc" == new String("abc")    // true
 "abc" === new String("abc")   // false
 ````
@@ -80,7 +81,7 @@ for(item in obj) {
 
 JavaScript の with ステートメントは、オブジェクトに繰り返しアクセスするための略記法を提供するためのものだ。次のように書く代わりに、
 
-````
+````javascript
 a.s.d.f.g.h.j.k.hello = true;
 a.s.d.f.g.h.j.k.world = true;
 ````
@@ -89,12 +90,13 @@ a.s.d.f.g.h.j.k.world = true;
 
 > You can write
 
-````
+````javascript
 th (a.s.d.f.g.h.j.k) {
     hello = true;
     world = true;
 }
 ````
+
 > How can you be sure if the variable a.s.d.f.g.h.j.k.hello is being set or a global variable named hello is being set.
 >
 > Fortunately, we have a better way of doing this.
@@ -102,7 +104,7 @@ th (a.s.d.f.g.h.j.k) {
 a.s.d.f.g.h.j.k.hello という変数がセットされるか、hello というグローバル変数がセットされるか自信を持って言えるだろうか？
 幸運にも、これをするのによい方法がある。
 
-````
+````javascript
 var obj = a.s.d.f.g.h.j.k;
 obj.hello = true;
 obj.world = true;
@@ -114,7 +116,7 @@ obj.world = true;
 
 インラインコードはすべてのモダンプラウザにおいて、関数呼び出しを行うよりも速い。このやり方は、散らかりの元となることを知ってはいるが、JavaScript のいらいらを扱う方法の一つだ。
 
-````
+````javascript
 function explicitCall() {
   function cube(x) { return x*x*x };
   var i = 1000;
@@ -147,7 +149,7 @@ function inlineCall() {
 JavaScript のパーサは、数値を扱う際のドット記法に問題がある。
 
 
-````
+````javascript
 10.toString() //Error
 ````
 
@@ -159,7 +161,7 @@ JavaScript のパーサは、最初のピリオドの右側に数字を期待し
 
 これを直すには、次のように 2 つのやり方がある。
 
-````
+````javascript
 (10).toString();
 10..toString();
 ````
@@ -175,7 +177,7 @@ if や for といったステートメントはスコープを作らない。そ
 
 次のコードで、変数 x の値が変更される様子がわかるだろう。
 
-````
+````javascript
 var x = 1; // x = 1
 
 if(true) {
@@ -187,6 +189,7 @@ if(true) {
 
 }
 ````
+
 > So x is changing as the code executes.
 
 変数 x がコードの実行とともに変化していく。
@@ -197,7 +200,7 @@ if(true) {
 
 実行時間の点で、グローバル変数はキャッシュした方がよい場合が多い。
 
-````
+````javascript
 function notcached() {
  var i = 1000;
  while (i--) window.test = 'test';
