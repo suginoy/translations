@@ -1,4 +1,4 @@
-# よりよい JavaScript を書くための 10 の Tips (10 tips to write better JavaScript)
+# もっと上手に JavaScript を書くための 10 の Tips (10 tips to write better JavaScript)
 
 この文章は、以下のブログの翻訳です。
 
@@ -14,8 +14,8 @@
 > 
 > When you’re writing JavaScript, you should always include semicolons after statements.
 
-JavaScript は、開発者にソースコード中のセミコロンを飛ばす自由がある。ほとんどの人は、私たちがそうであるように、怠け者なので、そうする傾向がある。
-しかし、JavaScript のコンパイラは依然としてセミコロンが必要で、セミコロンが無い箇所でパースエラーがあると必ず、パーサがセミコロンを挿入する。ステートメントを実行しようとして失敗すると、セミコロンから実行を再開しようとする。
+JavaScript では、開発者がソースコード中のセミコロンを飛ばす自由がある。ほとんどの人は、私たちがそうであるように、怠け者なので、そうする傾向にある。
+しかし、JavaScript のコンパイラは依然としてセミコロンを必要としていて、セミコロンがないところでパースエラーがあると必ず、パーサがセミコロンを挿入する。ステートメントを実行しようとして失敗すると、セミコロンから実行を再開しようとする。
 
 JavaScript を書くときは、ステートメントの後ろにかならずセミコロンを含めるべきだ。
 
@@ -39,7 +39,7 @@ var arr = new Array, obj = new Object;
 
 > Note that in modern browsers, the first way is faster and should be used.
 
-モダンなブラウザでは、最初の方が高速で、こちらを使うべきだ。
+モダンなブラウザでは、最初の方が高速なので、こちらを使うべきだ。
 
 ## 3 For ループ 対 For in ループ (For vs For in Loop)
 
@@ -57,9 +57,9 @@ for(item in obj) {
 > 
 > Therefore, most of the times, we have to use a if statement inside the loop along with the method “hasOwnProperty()” on the “obj”.
 
-これには欠点がある。アクセスを許すのが obj のプロパティのみではないということだ。プロトタイプチェーンによるオブジェクトを継承したプロパティをすべて含んでいるということでもある。
+これには欠点がある。アクセスを許すプロパティが obj のものだけではないということだ。プロトタイプチェーンによって継承したプロパティをすべて含んでいるということでもある。
 
-そのため、大抵は、ループ内で obj に hasOwnProperty() メソッドを付けた if ステートメントを使わないといけない。
+そのため、大抵は、ループ中の obj に対して hasOwnProperty() メソッドと一緒に if ステートメントを使わなくてはいけない。
 
 
 ## 4 == の代わりに === を使う(Use === instead of ==)
@@ -68,7 +68,7 @@ for(item in obj) {
 >
 > The == operator will compare for equality after doing any necessary type conversions. The === operator will not do the conversion, so if two values are not the same type === will simply return false. It’s this case where === will be faster, and may return a different result than ==. In all other cases performance will be the same.
 
-'===' 演算子は、等値か判断するのに必要な変換を行ってから比較を行う。'==' 演算子は変換をしない。2 つの値が同じ型でない場合、 '===' は単純に false を返す。'===' が速いのは事実だし、'==' と異なる結果を返すこともあるが、それ以外の多くの場合で、パフォーマンスは同じだ。
+'===' 演算子は、等値か判断するのに必要な変換を行ってから比較を行う。'==' 演算子は変換をしない。2 つの値が同じ型でない場合、 '===' は単純に false を返す。'===' が速いのは事実だし、'==' と異なる結果を返すこともあるが、それ以外のすべての場合で、パフォーマンスは同じだ。
 
 ````javascript
 "abc" == new String("abc")    // true
@@ -91,7 +91,7 @@ a.s.d.f.g.h.j.k.world = true;
 > You can write
 
 ````javascript
-th (a.s.d.f.g.h.j.k) {
+with (a.s.d.f.g.h.j.k) {
     hello = true;
     world = true;
 }
@@ -101,8 +101,8 @@ th (a.s.d.f.g.h.j.k) {
 >
 > Fortunately, we have a better way of doing this.
 
-a.s.d.f.g.h.j.k.hello という変数がセットされるか、hello というグローバル変数がセットされるか自信を持って言えるだろうか？
-幸運にも、これをするのによい方法がある。
+a.s.d.f.g.h.j.k.hello という変数がセットされるか、hello というグローバル変数がセットされるか自信を持って言えるだろうか。
+幸運にも、これをするのによいやり方がある。
 
 ````javascript
 var obj = a.s.d.f.g.h.j.k;
@@ -114,7 +114,7 @@ obj.world = true;
 
 > Inline code is faster in all modern browsers that calling functions. I know that writing code in this manner can lead to clutter, but this is just one those JavaScript annoyances that we deal with.
 
-インラインコードはすべてのモダンプラウザにおいて、関数呼び出しを行うよりも速い。このやり方は、散らかりの元となることを知ってはいるが、JavaScript のいらいらを扱う方法の一つだ。
+インラインコードはすべてのモダンプラウザで関数呼び出しを行うよりも速い。この方法は、散らかりの元となることを知ってはいるが、JavaScript のいらいらを扱う方法の一つでもある。
 
 ````javascript
 function explicitCall() {
@@ -139,7 +139,7 @@ function inlineCall() {
 > Use this and check your JavaScript for errors as much as you can. Running your code through this is a great way to improve your code and follow the best practices.
 
 [http://www.jslint.com/](http://www.jslint.com/) は JavaScript の品質測定ツールだ。
-これを使って、 JavaScript のエラーをできるだけチェックしよう。この中に自分のコードを走らせれば、コードを改善してベストプラクティスに従う素晴らしい方法となる。
+これを使って、 JavaScript のエラーをできるだけチェックしよう。この中に自分のコードを走らせれば、コードを改善し、ベストプラクティスに従う素晴らしい方法となる。
 
 
 ## 8 ドット記法と数値型(Dot Notation and Numbers)	
@@ -198,7 +198,7 @@ if(true) {
 
 > It is always better when caching globals in terms of execution time.
 
-実行時間の点で、グローバル変数はキャッシュした方がよい場合が多い。
+実行時間の観点から、グローバル変数はキャッシュした方がよい場合が多い。
 
 ````javascript
 function notcached() {
