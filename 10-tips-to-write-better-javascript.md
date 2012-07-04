@@ -14,7 +14,7 @@
 > 
 > When you’re writing JavaScript, you should always include semicolons after statements.
 
-JavaScript では、開発者がソースコード中のセミコロンを飛ばす自由がある。ほとんどの人は、私たちがそうであるように、怠け者なので、そうする傾向にある。
+JavaScript では、開発者がソースコード中のセミコロンを飛ばす自由がある。ほとんどの人は、私たちがそうであるように、怠け者なので、そうしがちだ。
 しかし、JavaScript のコンパイラは依然としてセミコロンを必要としていて、セミコロンがないところでパースエラーがあると必ず、パーサがセミコロンを挿入する。ステートメントを実行しようとして失敗すると、セミコロンから実行を再開しようとする。
 
 JavaScript を書くときは、ステートメントの後ろにかならずセミコロンを含めるべきだ。
@@ -114,7 +114,7 @@ obj.world = true;
 
 > Inline code is faster in all modern browsers that calling functions. I know that writing code in this manner can lead to clutter, but this is just one those JavaScript annoyances that we deal with.
 
-インラインコードはすべてのモダンプラウザで関数呼び出しを行うよりも速い。この方法は、散らかりの元となることを知ってはいるが、JavaScript のいらいらを扱う方法の一つでもある。
+インラインコードはすべてのモダンプラウザで関数呼び出しを行うよりも速い。私はこの方法が散らかりの元となることを知ってはいるが、これは JavaScript のいらいらを扱う方法の一つでもある。
 
 ````javascript
 function explicitCall() {
