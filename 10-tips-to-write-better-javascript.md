@@ -102,7 +102,7 @@ with (a.s.d.f.g.h.j.k) {
 > Fortunately, we have a better way of doing this.
 
 a.s.d.f.g.h.j.k.hello という変数がセットされるか、hello というグローバル変数がセットされるか自信を持って言えるだろうか。
-幸運にも、これをするのによいやり方がある。
+幸運にも、これをやるよいやり方がある。
 
 ````javascript
 var obj = a.s.d.f.g.h.j.k;
@@ -114,11 +114,11 @@ obj.world = true;
 
 > Inline code is faster in all modern browsers that calling functions. I know that writing code in this manner can lead to clutter, but this is just one those JavaScript annoyances that we deal with.
 
-インラインコードはすべてのモダンプラウザで関数呼び出しを行うよりも速い。私はこの方法が散らかりの元となることを知ってはいるが、これは JavaScript のいらいらを扱う方法の一つでもある。
+インラインコードはすべてのモダンプラウザで関数呼び出しを行うよりも速い。私はこの方法が散らかりの元となると知ってはいるが、これは JavaScript のいらいらを扱う一つの方法でもある。
 
 ````javascript
 function explicitCall() {
-  function cube(x) { return x*x*x };
+  function cube(x) { return x * x * x };
   var i = 1000;
 
   while(i--) { console.info(cube(i)); }
@@ -128,7 +128,7 @@ function explicitCall() {
 function inlineCall() {
   var i = 1000;
 
-  while(i--) { console.info(i*i*i); }
+  while(i--) { console.info(i * i * i); }
 
 }
 ````
@@ -159,7 +159,7 @@ JavaScript のパーサは、最初のピリオドの右側に数字を期待し
 
 > To fix this, there are two ways of going forward
 
-これを直すには、次のように 2 つのやり方がある。
+これを正すには、次のように 2 つのやり方がある。
 
 ````javascript
 (10).toString();
